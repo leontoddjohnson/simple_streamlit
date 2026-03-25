@@ -19,8 +19,9 @@ This tutorial assumes the following:
    - Note the contents of the .gitignore file. **"Secret files" (e.g., a .env file) and data (e.g., .csv files) should be strictly ignored.**
 3. Initialize a pip environment using the *env.yml* file in this directory. For example, if you're using Ana/Miniconda, you'll use `conda env create -f env.yml`.
    - The use of "env.yml" instead of "environment.yml" is intentional. If you prefer to use "environment.yml", you may want to add the file to your .gitignore list (see the note below).
-4. Any time you add new packages to the environment, **update the .yml file**, and save an updated requirements file with `pip freeze > requirements.txt` (this should be run **within the environment**, so you'll need to activate it first).
+4. Any time you add new packages to the environment, **update the .yml file**, and save an updated requirements file with `pip list --format=freeze > requirements.txt` (this should be run **within the environment**, so you'll need to activate it first).
    - **All packages should be installed using pip.**
+   - *Note:You may have seen direction to use `pip freeze ...`, but when we use pip "in" conda as we are here, we need [this adjustment](https://stackoverflow.com/a/62872764).*
 
 **Note:** [Streamlit will only use \*one dependency file](https://docs.streamlit.io/streamlit-community-cloud/deploy-your-app/app-dependencies#other-python-package-managers). If you have both a "requirements.txt" file *and* an "environment.yml" file in your repository, you will likely run into issues. The recommended option is to keep the *requirements.txt* file tracked on GitHub and the "environment.yml" file ignored (and unseen by Streamlit Cloud).
 
